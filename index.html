@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>SweetSpots — Save places you want to try</title>
+  <meta name="description" content="SweetSpots makes it simple to save places you want to try, get notified when you're nearby, open directions, and share with friends." />
+  <link rel="canonical" href="https://YOUR-SITE-URL" />
+
+  <!-- Social preview (replace later if you add an og image) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SweetSpots — Save places you want to try" />
+  <meta property="og:description" content="Save & collect spots, get smart notifications, open directions, and share with friends." />
+  <meta property="og:url" content="https://YOUR-SITE-URL" />
+  <meta property="og:image" content="https://YOUR-SITE-URL/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="favicon.ico" />
+
+  <style>
+    :root{
+      --bg:#faf7ff;
+      --card:#ffffff;
+      --text:#1f1f1f;
+      --muted:#5f5f6b;
+      --purple:#8A6FEE; /* your brand */
+      --shadow: 0 10px 30px rgba(0,0,0,.07);
+      --radius: 16px;
+      --maxw: 980px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      color:var(--text);
+      background: radial-gradient(1200px 600px at 50% -100px, #efe9ff 0,#faf8ff 40%, var(--bg) 75%);
+    }
+    .wrap{max-width:var(--maxw); margin:48px auto; padding:0 20px}
+    .hero{
+      background:var(--card);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:44px 28px;
+      text-align:center;
+    }
+    .logo-img{
+      width:72px; height:72px; object-fit:contain; border-radius:16px;
+      display:block; margin:0 auto 14px;
+      box-shadow: 0 6px 16px rgba(138,111,238,.25);
+    }
+    h1{font-size:40px; line-height:1.1; margin:0 0 14px; color:var(--purple)}
+    .lead{color:var(--muted); font-size:18px; line-height:1.6; margin:0 auto 22px; max-width:760px}
+    .store-badges{
+      display:flex; gap:14px; justify-content:center; align-items:center; flex-wrap:wrap; margin-bottom:8px;
+    }
+    .store-badges a img{height:48px}
+    .grid{
+      display:grid; gap:16px; margin:26px 0 0;
+      grid-template-columns: repeat( auto-fit, minmax(240px,1fr) );
+    }
+    .card{background:var(--card); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); text-align:left;}
+    .card h3{margin:6px 0 6px; font-size:18px}
+    .card p{margin:0; color:var(--muted); font-size:15px; line-height:1.5}
+    .icon{font-size:22px}
+    footer{
+      max-width:var(--maxw); margin:26px auto 60px; padding:0 20px; color:var(--muted); font-size:14px;
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    }
+    a{color:var(--purple)}
+  </style>
+
+  <!-- Structured data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SweetSpots",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "iOS",
+    "url": "https://YOUR-SITE-URL",
+    "description": "Save places you want to try, get notified when you're nearby, open directions, and share with friends.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <!-- Replace this file with your square logo: logo.png or logo.svg -->
+      <img src="logo.png" alt="SweetSpots logo" class="logo-img" />
+
+      <h1>SweetSpots</h1>
+      <p class="lead">
+        SweetSpots makes it simple to save places you want to try—whether you spot them on social media, hear about them from friends, or discover them yourself.
+        Organize favourites into collections, get notified when you’re nearby, open directions in the app, and share your top spots with friends.
+      </p>
+
+      <div class="store-badges">
+        <!-- OFFICIAL APP STORE BADGE -->
+        <!-- Download the official badge from Apple and save as app-store-badge.svg next to this file. -->
+        <!-- INSERT APP STORE LINK HERE: replace # with your App Store URL when ready -->
+        <a href="#" aria-label="Download on the App Store">
+          <img src="app-store-badge.svg" alt="Download on the App Store">
+        </a>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="icon" aria-hidden="true">🗂️</div>
+          <h3>Save &amp; Collect</h3>
+          <p>Save your favourite spots and organize them into collections.</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">🔔</div>
+          <h3>Smart Notifications</h3>
+          <p>Get notified when you're close to a spot on your list.</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">📍</div>
+          <h3>Easy Directions</h3>
+          <p>Navigate quickly to your saved spots with built-in maps.</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">🤝</div>
+          <h3>Share with Friends</h3>
+          <p>Send your collections to friends and explore together.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="y"></span> SweetSpots</span>
+    <span>
+      <a href="privacy.pdf">Privacy Policy</a> •
+      <a href="terms.pdf">Terms &amp; Conditions</a> •
+      Contact: <a href="mailto:getsweetspots@gmail.com">getsweetspots@gmail.com</a>
+    </span>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>

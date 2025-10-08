@@ -7,6 +7,8 @@
   <title>SweetSpots — Save places you want to try</title>
   <meta name="description" content="SweetSpots makes it simple to save places you want to try, get notified when you're nearby, open directions, and share with friends." />
   <link rel="canonical" href="https://YOUR-SITE-URL" />
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <!-- Social preview (replace later if you add an og image) -->
   <meta property="og:type" content="website" />
@@ -42,15 +44,15 @@
       padding:44px 28px;
       text-align:center;
     }
-    .logo-img{
-      width:240px;           /* smaller than original image */
-      height:240px;
-      max-width:25vw;        /* prevents it from growing too large on big screens */
-      object-fit:contain;
-      border-radius:20px;
-      display:block;
-      margin:0 auto 20px;
-      box-shadow:0 6px 16px rgba(138,111,238,.25);
+    .logo-img {
+      width: 240px;          /* size can be adjusted */
+      aspect-ratio: 1 / 1;   /* always keeps it square */
+      object-fit: contain;
+      border-radius: 20px;
+      display: block;
+      margin: 0 auto 20px;
+      box-shadow: 0 6px 16px rgba(138,111,238,.25);
+      max-width: 25vw;       /* prevents it from being too big on large screens */
     }
     h1{font-size:40px; line-height:1.1; margin:0 0 14px; color:var(--purple)}
     .lead{color:var(--muted); font-size:18px; line-height:1.6; margin:0 auto 22px; max-width:760px}

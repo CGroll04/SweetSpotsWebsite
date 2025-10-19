@@ -19,31 +19,35 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <style>
-    :root{
+    :root {
       --bg:#faf7ff;
       --card:#ffffff;
       --text:#1f1f1f;
       --muted:#5f5f6b;
       --purple:#8A6FEE;
       --shadow: 0 10px 30px rgba(0,0,0,.07);
-      --radius: 16px;
+      --radius: 20px;
       --maxw: 980px;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0}
-    body{
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
-      color:var(--text);
-      background: radial-gradient(1200px 600px at 50% -100px, #efe9ff 0,#faf8ff 40%, var(--bg) 75%);
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 50% -100px, #efe9ff 0, #faf8ff 40%, var(--bg) 75%);
     }
-    .wrap{max-width:var(--maxw); margin:48px auto; padding:0 20px}
-    .hero{
-      background:var(--card);
-      border-radius:28px;
-      box-shadow:var(--shadow);
-      padding:44px 28px;
-      text-align:center;
+
+    .wrap { max-width: var(--maxw); margin: 48px auto; padding: 0 20px; }
+
+    .hero {
+      background: var(--card);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 44px 28px;
+      text-align: center;
     }
+
     .logo-img {
       width: 240px;
       aspect-ratio: 1 / 1;
@@ -54,42 +58,107 @@
       box-shadow: 0 6px 16px rgba(138,111,238,.25);
       max-width: 25vw;
     }
-    h1{font-size:40px; line-height:1.1; margin:0 0 14px; color:var(--purple)}
-    .lead{color:var(--muted); font-size:18px; line-height:1.6; margin:0 auto 22px; max-width:760px}
-    .store-badges{
-      display:flex; gap:14px; justify-content:center; align-items:center; flex-wrap:wrap; margin-bottom:8px;
-    }
-    .store-badges a img{height:48px}
 
-    /* NEW: feature rows layout */
-    .features{margin:26px 0 0}
-    .row-3{
-      display:grid; gap:16px;
-      grid-template-columns: repeat(3, minmax(240px,1fr));
-    }
-    @media (max-width: 900px){
-      .row-3{ grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); }
-    }
-    .row-2{
-      margin-top:16px;
-      display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
-    }
-    .row-2 .card{
-      flex:1 1 320px;          /* grows nicely but stays readable */
-      max-width:480px;         /* prevents super-wide cards on desktop */
+    h1 {
+      font-size: 40px;
+      line-height: 1.1;
+      margin-bottom: 14px;
+      color: var(--purple);
     }
 
-    .card{background:var(--card); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); text-align:left;}
-    .card h3{margin:6px 0 6px; font-size:18px}
-    .card p{margin:0; color:var(--muted); font-size:15px; line-height:1.5}
-    .icon{font-size:22px}
-    footer{
-      max-width:var(--maxw); margin:26px auto 60px; padding:0 20px; color:var(--muted); font-size:14px;
-      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    .lead {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 0 auto 22px;
+      max-width: 760px;
     }
-    a{color:var(--purple)}
+
+    .store-badges {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .store-badges a img { height: 48px; }
+
+    /* === Feature grid === */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      justify-items: center;
+      align-items: stretch;
+      margin-top: 32px;
+    }
+
+    .card {
+      background: var(--card);
+      width: 260px;
+      aspect-ratio: 1 / 1;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .icon {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin: 6px 0;
+      font-size: 18px;
+      color: var(--purple);
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .ghost {
+      visibility: hidden;
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { width: 100%; aspect-ratio: auto; }
+    }
+
+    footer {
+      max-width: var(--maxw);
+      margin: 40px auto 60px;
+      padding: 0 20px;
+      color: var(--muted);
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    a { color: var(--purple); }
   </style>
 
+  <!-- Structured data for SEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -107,6 +176,7 @@
   <main class="wrap">
     <section class="hero">
       <img src="SweetSpotsLogo.png" alt="SweetSpots logo" class="logo-img" />
+
       <h1>SweetSpots</h1>
       <p class="lead">
         Turn your social media finds into real-world adventures.
@@ -119,45 +189,41 @@
         </a>
       </div>
 
-      <!-- NEW: split rows + requested order -->
-      <section class="features" aria-label="App features">
-        <!-- Top row (3) -->
-        <div class="row-3">
-          <article class="card">
-            <div class="icon" aria-hidden="true">➕</div>
-            <h3>Save &amp; Add</h3>
-            <p>Capture spots in seconds from the share sheet or add them manually.</p>
-          </article>
+      <!-- Feature grid (3 top, 2 centered bottom) -->
+      <div class="grid">
+        <article class="card">
+          <div class="icon" aria-hidden="true">➕</div>
+          <h3>Save &amp; Add</h3>
+          <p>Capture spots instantly from the share sheet or add them manually.</p>
+        </article>
 
-          <article class="card">
-            <div class="icon" aria-hidden="true">🗂️</div>
-            <h3>Create Collections</h3>
-            <p>Group your spots into themed collections for easy planning.</p>
-          </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">🗂️</div>
+          <h3>Create Collections</h3>
+          <p>Group your spots into themed collections for easy planning.</p>
+        </article>
 
-          <article class="card">
-            <div class="icon" aria-hidden="true">🔔</div>
-            <h3>Smart Notifications</h3>
-            <p>Get a gentle nudge when you’re near a saved spot.</p>
-          </article>
-        </div>
+        <article class="card">
+          <div class="icon" aria-hidden="true">🔔</div>
+          <h3>Smart Notifications</h3>
+          <p>Get a gentle nudge when you’re near a saved spot.</p>
+        </article>
 
-        <!-- Bottom row (2 centered) -->
-        <div class="row-2">
-          <article class="card">
-            <div class="icon" aria-hidden="true">🧭</div>
-            <h3>Navigation</h3>
-            <p>Open directions to any spot with your preferred maps app.</p>
-          </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">🧭</div>
+          <h3>Navigation</h3>
+          <p>Open directions to any spot with your preferred maps app.</p>
+        </article>
 
-          <article class="card">
-            <div class="icon" aria-hidden="true">🤝</div>
-            <h3>Share with Friends</h3>
-            <p>Send collections or individual spots and explore together.</p>
-          </article>
-        </div>
-      </section>
-      <!-- /features -->
+        <article class="card">
+          <div class="icon" aria-hidden="true">🤝</div>
+          <h3>Share with Friends</h3>
+          <p>Send collections or individual spots and explore together.</p>
+        </article>
+
+        <!-- ghost cell for bottom centering -->
+        <div class="ghost"></div>
+      </div>
     </section>
   </main>
 
@@ -170,6 +236,8 @@
     </span>
   </footer>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

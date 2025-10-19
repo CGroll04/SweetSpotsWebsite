@@ -93,6 +93,7 @@
       justify-items: center;
       align-items: stretch;
       margin-top: 32px;
+      position: relative;
     }
 
     .card {
@@ -130,15 +131,16 @@
       line-height: 1.5;
     }
 
-    /* invisible placeholders for centering */
+    /* ghost placeholders — smaller width for perfect centering */
     .ghost {
       visibility: hidden;
-      width: 130px;
+      width: 80px; /* smaller placeholder width */
       aspect-ratio: 1 / 1;
     }
 
     @media (max-width: 900px) {
       .grid { grid-template-columns: repeat(2, 1fr); }
+      .ghost { display: none; }
     }
 
     @media (max-width: 600px) {
@@ -192,9 +194,9 @@
         </a>
       </div>
 
-      <!-- Feature grid (3 top, 2 centered bottom) -->
+      <!-- Feature grid -->
       <div class="grid">
-        <!-- top 3 -->
+        <!-- top row -->
         <article class="card">
           <div class="icon" aria-hidden="true">➕</div>
           <h3>Save &amp; Add</h3>
@@ -213,7 +215,7 @@
           <p>Get a gentle nudge when you’re near a saved spot.</p>
         </article>
 
-        <!-- bottom row: 2 centered with ghosts -->
+        <!-- bottom row (centered with small ghosts) -->
         <div class="ghost"></div>
 
         <article class="card">

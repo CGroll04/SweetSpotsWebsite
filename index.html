@@ -10,7 +10,6 @@
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-  <!-- Social preview -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="SweetSpots — Save places you want to visit" />
   <meta property="og:description" content="Save & add spots, create collections, get smart notifications, navigate, and share with friends." />
@@ -19,35 +18,31 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <style>
-    :root {
+    :root{
       --bg:#faf7ff;
       --card:#ffffff;
       --text:#1f1f1f;
       --muted:#5f5f6b;
       --purple:#8A6FEE;
       --shadow: 0 10px 30px rgba(0,0,0,.07);
-      --radius: 20px;
+      --radius: 16px;
       --maxw: 980px;
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
-      color: var(--text);
-      background: radial-gradient(1200px 600px at 50% -100px, #efe9ff 0, #faf8ff 40%, var(--bg) 75%);
+      color:var(--text);
+      background: radial-gradient(1200px 600px at 50% -100px, #efe9ff 0,#faf8ff 40%, var(--bg) 75%);
     }
-
-    .wrap { max-width: var(--maxw); margin: 48px auto; padding: 0 20px; }
-
-    .hero {
-      background: var(--card);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 44px 28px;
-      text-align: center;
+    .wrap{max-width:var(--maxw); margin:48px auto; padding:0 20px}
+    .hero{
+      background:var(--card);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:44px 28px;
+      text-align:center;
     }
-
     .logo-img {
       width: 240px;
       aspect-ratio: 1 / 1;
@@ -58,112 +53,65 @@
       box-shadow: 0 6px 16px rgba(138,111,238,.25);
       max-width: 25vw;
     }
-
-    h1 {
-      font-size: 40px;
-      line-height: 1.1;
-      margin-bottom: 14px;
-      color: var(--purple);
+    h1{font-size:40px; line-height:1.1; margin:0 0 14px; color:var(--purple)}
+    .lead{color:var(--muted); font-size:18px; line-height:1.6; margin:0 auto 22px; max-width:760px}
+    .store-badges{
+      display:flex; gap:14px; justify-content:center; align-items:center; flex-wrap:wrap; margin-bottom:8px;
     }
+    .store-badges a img{height:48px}
 
-    .lead {
-      color: var(--muted);
-      font-size: 18px;
-      line-height: 1.6;
-      margin: 0 auto 22px;
-      max-width: 760px;
+    /* UPDATED: feature grid layout */
+    .features {
+      margin: 26px 0 0;
     }
-
-    .store-badges {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-bottom: 16px;
-    }
-
-    .store-badges a img { height: 48px; }
-
-    /* === Feature grid === */
-    .grid {
+    .features-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      justify-items: center;
-      align-items: stretch;
-      margin-top: 32px;
-      position: relative;
+      /* Create a 6-column grid for precise centering */
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
     }
-
-    .card {
-      background: var(--card);
-      width: 260px;
-      aspect-ratio: 1 / 1;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 22px;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      transition: transform 0.2s ease;
+    .features-grid .card {
+      /* Make the first 3 cards span 2 columns each */
+      grid-column: span 2;
     }
-
-    .card:hover {
-      transform: translateY(-4px);
+    /* Precisely place the 4th and 5th cards to center them */
+    .features-grid .card:nth-child(4) {
+      grid-column: 2 / span 2; /* Start at column 2, span 2 */
     }
-
-    .icon {
-      font-size: 26px;
-      margin-bottom: 10px;
+    .features-grid .card:nth-child(5) {
+      grid-column: 4 / span 2; /* Start at column 4, span 2 */
     }
-
-    .card h3 {
-      margin: 6px 0;
-      font-size: 18px;
-      color: var(--purple);
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.5;
-    }
-
-    /* ghost placeholders — smaller width for perfect centering */
-    .ghost {
-      visibility: hidden;
-      width: 80px; /* smaller placeholder width */
-      aspect-ratio: 1 / 1;
-    }
-
+    /* --- Responsive Adjustments --- */
+    /* On tablets, switch to a simple 2-column layout */
     @media (max-width: 900px) {
-      .grid { grid-template-columns: repeat(2, 1fr); }
-      .ghost { display: none; }
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      /* Reset all cards to just span 1 column */
+      .features-grid .card,
+      .features-grid .card:nth-child(4),
+      .features-grid .card:nth-child(5) {
+        grid-column: span 1;
+      }
+    }
+    /* On mobile, stack them in a single column */
+    @media (max-width: 500px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
-    @media (max-width: 600px) {
-      .grid { grid-template-columns: 1fr; }
-      .card { width: 100%; aspect-ratio: auto; }
+    .card{background:var(--card); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); text-align:left;}
+    .card h3{margin:6px 0 6px; font-size:18px}
+    .card p{margin:0; color:var(--muted); font-size:15px; line-height:1.5}
+    .icon{font-size:22px}
+    footer{
+      max-width:var(--maxw); margin:26px auto 60px; padding:0 20px; color:var(--muted); font-size:14px;
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
     }
-
-    footer {
-      max-width: var(--maxw);
-      margin: 40px auto 60px;
-      padding: 0 20px;
-      color: var(--muted);
-      font-size: 14px;
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    a { color: var(--purple); }
+    a{color:var(--purple)}
   </style>
 
-  <!-- Structured data for SEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -181,7 +129,6 @@
   <main class="wrap">
     <section class="hero">
       <img src="SweetSpotsLogo.png" alt="SweetSpots logo" class="logo-img" />
-
       <h1>SweetSpots</h1>
       <p class="lead">
         Turn your social media finds into real-world adventures.
@@ -194,45 +141,40 @@
         </a>
       </div>
 
-      <!-- Feature grid -->
-      <div class="grid">
-        <!-- top row -->
-        <article class="card">
-          <div class="icon" aria-hidden="true">➕</div>
-          <h3>Save &amp; Add</h3>
-          <p>Capture spots instantly from the share sheet or add them manually.</p>
-        </article>
+      <section class="features" aria-label="App features">
+        <div class="features-grid">
+          <article class="card">
+            <div class="icon" aria-hidden="true">➕</div>
+            <h3>Save &amp; Add</h3>
+            <p>Capture spots in seconds from the share sheet or add them manually.</p>
+          </article>
 
-        <article class="card">
-          <div class="icon" aria-hidden="true">🗂️</div>
-          <h3>Create Collections</h3>
-          <p>Group your spots into themed collections for easy planning.</p>
-        </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">🗂️</div>
+            <h3>Create Collections</h3>
+            <p>Group your spots into themed collections for easy planning.</p>
+          </article>
 
-        <article class="card">
-          <div class="icon" aria-hidden="true">🔔</div>
-          <h3>Smart Notifications</h3>
-          <p>Get a gentle nudge when you’re near a saved spot.</p>
-        </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">🔔</div>
+            <h3>Smart Notifications</h3>
+            <p>Get a gentle nudge when you’re near a saved spot.</p>
+          </article>
 
-        <!-- bottom row (centered with small ghosts) -->
-        <div class="ghost"></div>
+          <article class="card">
+            <div class="icon" aria-hidden="true">🧭</div>
+            <h3>Navigation</h3>
+            <p>Open directions to any spot with your preferred maps app.</p>
+          </article>
 
-        <article class="card">
-          <div class="icon" aria-hidden="true">🧭</div>
-          <h3>Navigation</h3>
-          <p>Open directions to any spot with your preferred maps app.</p>
-        </article>
-
-        <article class="card">
-          <div class="icon" aria-hidden="true">🤝</div>
-          <h3>Share with Friends</h3>
-          <p>Send collections or individual spots and explore together.</p>
-        </article>
-
-        <div class="ghost"></div>
-      </div>
-    </section>
+          <article class="card">
+            <div class="icon" aria-hidden="true">🤝</div>
+            <h3>Share with Friends</h3>
+            <p>Send collections or individual spots and explore together.</p>
+          </article>
+        </div>
+      </section>
+      </section>
   </main>
 
   <footer>
@@ -244,8 +186,6 @@
     </span>
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
 </body>
 </html>

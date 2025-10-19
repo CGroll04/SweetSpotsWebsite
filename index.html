@@ -130,8 +130,11 @@
       line-height: 1.5;
     }
 
+    /* invisible placeholders for centering */
     .ghost {
       visibility: hidden;
+      width: 260px;
+      aspect-ratio: 1 / 1;
     }
 
     @media (max-width: 900px) {
@@ -191,6 +194,7 @@
 
       <!-- Feature grid (3 top, 2 centered bottom) -->
       <div class="grid">
+        <!-- top 3 -->
         <article class="card">
           <div class="icon" aria-hidden="true">➕</div>
           <h3>Save &amp; Add</h3>
@@ -209,6 +213,9 @@
           <p>Get a gentle nudge when you’re near a saved spot.</p>
         </article>
 
+        <!-- bottom row: 2 centered with ghosts -->
+        <div class="ghost"></div>
+
         <article class="card">
           <div class="icon" aria-hidden="true">🧭</div>
           <h3>Navigation</h3>
@@ -221,7 +228,6 @@
           <p>Send collections or individual spots and explore together.</p>
         </article>
 
-        <!-- ghost cell for bottom centering -->
         <div class="ghost"></div>
       </div>
     </section>

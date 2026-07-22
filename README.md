@@ -21,11 +21,12 @@ Instead of losing recommendations in screenshots, bookmarks, notes, or direct me
 
 This repository contains the static website hosted using GitHub Pages.
 
-## Website
+## Website and App
 
-Visit:
+- Website: https://thesweetspotsapp.com
+- Download on the App Store: https://apps.apple.com/ca/app/sweetspots/id6747997071
 
-https://thesweetspotsapp.com
+The iOS application source code is private. This repository contains only the public SweetSpots product website.
 
 ## Contact
 
